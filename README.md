@@ -14,6 +14,7 @@ Prakhar Ganesh, Gaurav Gupta, Shubhi Saini, Kolin Paul
 
 ## Execution Instructions
 > python pre_process.py <model_name>
+
 > python alignment.py <reads_fileName.bam> <reference_fileName.fasta> <model_name>
 
 
