@@ -230,39 +230,34 @@ endTime = time.clock()
 print("Prediction Done")
 print("Prediction time : ", endTime - startTime)
 
-# The prediction has been done in the code above. The code below is basically
+# The prediction has been done in the code above. \
+# The code below is just the analysis of the predicted results and is not the part of the pipeline
+
 
 # Initialising the number of examples in each category to 0
+# All the six types of categories are defined in the paper
 category_values = [0, 0, 0, 0, 0, 0]
 
+
 for ele1, ele2, kmer in zip(pred, kmer_ind, kmer_arr):
-    # print("new")
-    ttl += 1
     if(ele1==-1 and ele2[0]==-1):
-        corr += 1
+        category_values[0] += 1
     elif(ele1==-1):
-        nomatch += 1
-        # print(NW(kmer, ref_dna[ele2[0]: ele2[0] + len(kmer)]), "a")
+        category_values[5] += 1
     elif(ele2[0]==-1):
         a = NW(kmer, ref_dna[ele1: ele1 + len(kmer)])
-        if(a[0]>0.5):
-            ocorr += 1
-        inc += 1
-    elif(ele1 - ele2[0] < 5 and ele1 - ele2[0] > -5):
-        corr += 1
+        if(a[0]>0.8):
+            category_values[1] += 1
+        category_values[3] += 1
+    elif(ele1 - ele2[0] < 3 and ele1 - ele2[0] > -3):
+        category_values[0] += 1
     else:
         a = NW(kmer, ref_dna[ele1: ele1 + len(kmer)])
         b = NW(kmer, ref_dna[ele2[0]: ele2[0] + len(kmer)])
         if(b[0] - a[0] > 0.1):
-            mism += 1
+            category_values[4] += 1
         else:
-            cat3 += 1
-    if(ttl%10000==0):
-        print(ttl)
+            category_values[2] += 1
 
-print("Prediction Accuracy 1  : ", corr / ttl)
-print("Prediction Accuracy 1  : ", ocorr / ttl)
-print("Prediction Accuracy 1  : ", mism / ttl)
-print("Prediction Accuracy 1  : ", inc / ttl)
-print("Prediction Accuracy 1  : ", cat3 / ttl)
-print("Prediction Accuracy 1  : ", nomatch / ttl)
+# Print percentages for all 6 categories
+print(category_values/len(kmer))
