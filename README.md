@@ -1,7 +1,9 @@
 # Nucl2Vec : Local alignment of DNA sequences using Distributed Vector Representation
 Prakhar Ganesh, Gaurav Gupta, Shubhi Saini, Kolin Paul
 
-*This repository contains the code for the novel encoding proposed, Nucl2Vec. To know more, please refer to the paper here. (Link not added yet)*
+*This repository contains the code for the novel encoding proposed, Nucl2Vec. To know more, please refer to the paper here.*
+
+Biorxiv -> [preprint](https://www.biorxiv.org/content/early/2018/08/28/401851)
 
 ----
 
