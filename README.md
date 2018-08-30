@@ -3,7 +3,7 @@ Prakhar Ganesh, Gaurav Gupta, Shubhi Saini, Kolin Paul
 
 *This repository contains the code for the novel encoding proposed, Nucl2Vec. To know more, please refer to the paper.*
 
-Biorxiv -> [preprint](https://www.biorxiv.org/content/early/2018/08/28/401851)
+Biorxiv -> [preprint](https://www.biorxiv.org/content/early/2018/08/29/401851)
 
 ----
 
